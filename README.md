@@ -25,7 +25,7 @@ The toolkit runs a synchronous sidecar proxy that intercepts every payload and s
 [LEDGER RECORD] Entry ID: 9a2f-4bce | SHA-256 Hash Chain: VERIFIED ✔
 ```
 
-![HITL Flow](assets/hitl_demo.webp)
+![AI Governance Console Dashboard](assets/dashboard_fixed.png)
 
 > **[▶ Open Live Demo](https://awesome-ai-governance-toolkit-9jtu4sdrsfpgp5bcbmzrbr.streamlit.app)** — fully interactive, no install required. Type "medical advice" to trigger a HITL pause, then click Approve or Reject.
 
