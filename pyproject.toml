@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "awesome-ai-governance-toolkit"
-version = "1.0.0"
-description = "Runtime firewall for LLMs — policy-as-code, PII scrubbing, SHA-256 audit chain & HITL dashboard. EU AI Act + NIST AI RMF compliant."
+version = "1.0.1"
+description = "Runtime firewall for LLMs — policy-as-code, PII scrubbing, SHA-256 audit chain and HITL dashboard. EU AI Act + NIST AI RMF compliant."
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"
-authors = [{ name = "Aryanshanu", email = "github@aryanshanu" }]
+authors = [{ name = "Aryanshanu" }]
 keywords = [
     "ai", "governance", "llm", "security", "compliance",
     "eu-ai-act", "nist", "audit", "pii", "firewall",

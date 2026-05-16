@@ -11,7 +11,7 @@
 [![CodeQL](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions/workflows/codeql.yml/badge.svg)](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions/workflows/codeql.yml)
 [![PyPI](https://img.shields.io/pypi/v/awesome-ai-governance-toolkit.svg)](https://pypi.org/project/awesome-ai-governance-toolkit/)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-green.svg)](https://python.org)
-[![Changelog](https://img.shields.io/badge/changelog-1.0.0-blue.svg)](CHANGELOG.md)
+[![Changelog](https://img.shields.io/badge/changelog-1.0.1-blue.svg)](CHANGELOG.md)
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://awesome-ai-governance-toolkit-9jtu4sdrsfpgp5bcbmzrbr.streamlit.app)
 
 ---
