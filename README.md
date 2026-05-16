@@ -220,6 +220,11 @@ cd awesome-ai-governance-toolkit
 pip install -r requirements.txt
 ```
 
+**Option 3 — Run with Docker:**
+```bash
+docker run -p 8000:8000 ghcr.io/aryanshanu/awesome-ai-governance-toolkit
+```
+
 **After pip install — CLI shortcuts:**
 ```bash
 ai-governance-serve      # starts the firewall API on port 8000
