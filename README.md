@@ -400,9 +400,9 @@ If any red-team check passes (i.e., a dangerous prompt is NOT blocked), the pipe
 ## Extending the Toolkit
 
 ### Add a new forbidden topic
-Edit `config/policy.json`:
+Edit `config/policies/tenant_global_baseline.json`:
 ```json
-"block_forbidden_tokens": ["malware", "social engineering", "steal password", "your_new_term"]
+"block_forbidden_tokens": ["malware", "social engineering", "exploit payload", "your_new_term"]
 ```
 Restart the server. Done.
 

@@ -34,7 +34,7 @@ def seed_demo_db(db_path: str = "ledger.db") -> int:
         conn.close()
         return 0
 
-    prev_hash = "0" * 64
+    prev_hash = "0" * 32  # matches get_last_hash() genesis value
     inserted  = 0
     for action, violation, review in DEMO_ENTRIES:
         rid            = str(uuid.uuid4())

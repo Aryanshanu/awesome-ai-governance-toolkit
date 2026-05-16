@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-DB_PATH = "ledger.db"
+from src.database import DB_PATH
 
 def generate_health_report() -> dict:
     """
