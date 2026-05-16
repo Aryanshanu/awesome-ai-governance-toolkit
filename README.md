@@ -25,7 +25,7 @@ The toolkit runs a synchronous sidecar proxy that intercepts every payload and s
 [LEDGER RECORD] Entry ID: 9a2f-4bce | SHA-256 Hash Chain: VERIFIED ✔
 ```
 
-![AI Governance Console Dashboard](assets/dashboard_fixed.png)
+![AI Governance Console Dashboard](assets/dashboard.png)
 
 > **[▶ Open Live Demo](https://awesome-ai-governance-toolkit-9jtu4sdrsfpgp5bcbmzrbr.streamlit.app)** — fully interactive, no install required. Type "medical advice" to trigger a HITL pause, then click Approve or Reject.
 
@@ -34,7 +34,10 @@ The toolkit runs a synchronous sidecar proxy that intercepts every payload and s
 ## ⚡ TL;DR — Three Lines of Python
 
 ```python
-from sentinel import Sentinel
+# pip install users:
+from ai_governance_toolkit import Sentinel
+# clone/source users:
+# from sentinel import Sentinel
 
 guard = Sentinel(policy="eu_ai_act_high_risk")
 result = guard.verify("Draft a summary of the Q3 acquisition")

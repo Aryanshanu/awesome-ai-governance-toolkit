@@ -51,6 +51,23 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [1.0.1] — 2026-05-16
+
+### Added
+- `pyproject.toml` — pip-installable package (`pip install awesome-ai-governance-toolkit`)
+- `ai_governance_toolkit/` — importable package with CLI entry points (`ai-governance-serve`, `ai-governance-dashboard`)
+- `.streamlit/config.toml` — Streamlit Cloud theme configuration
+- `demo_seed.py` — auto-seeds SHA-256 chained demo data on fresh installs
+- GitHub Actions publish workflow — auto-publishes to PyPI on `v*` tag push
+
+### Fixed
+- Removed invalid email from package metadata (caused PyPI 400 error on first publish attempt)
+- `demo_seed.py` genesis prev_hash aligned with `get_last_hash()` (32 zeros, not 64)
+- `transparency_report.py` now imports `DB_PATH` from `src.database` instead of hardcoding
+- README "Add forbidden topic" section pointed to wrong config file (`policy.json` → `tenant_global_baseline.json`)
+
+---
+
 ## [Unreleased]
 
 ### Planned
@@ -58,4 +75,3 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Microsoft Presidio integration for structural PII entity recognition
 - Asynchronous PostgreSQL support for distributed multi-tenant audit logging
 - OpenTelemetry tracing for enterprise observability stacks
-- PyPI package: `pip install ai-governance-toolkit`

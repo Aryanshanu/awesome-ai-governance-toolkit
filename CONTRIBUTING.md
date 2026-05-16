@@ -15,7 +15,7 @@ Thank you for helping build responsible AI infrastructure. This guide covers eve
 ## Development Setup
 
 ```bash
-git clone https://github.com/your-org/awesome-ai-governance-toolkit
+git clone https://github.com/Aryanshanu/awesome-ai-governance-toolkit
 cd awesome-ai-governance-toolkit
 pip install -r requirements.txt
 ```
@@ -152,7 +152,7 @@ A PR that allows a red-team prompt to reach the LLM **will not merge**, regardle
 
 ## Code Standards
 
-- Python 3.13+
+- Python 3.11+ (CI runs on 3.13)
 - Type hints on all function signatures
 - No external AI API keys in any committed code
 - No hardcoded credentials, tokens, or secrets
@@ -162,7 +162,7 @@ A PR that allows a red-team prompt to reach the LLM **will not merge**, regardle
 
 ## Reporting Security Vulnerabilities
 
-Do **not** open a public GitHub Issue for security vulnerabilities. Email the maintainers directly with:
+Do **not** open a public GitHub Issue for security vulnerabilities. Use GitHub's private [Security Advisories](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/security/advisories/new) to report with:
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact

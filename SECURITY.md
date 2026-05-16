@@ -15,7 +15,8 @@ The Runtime Firewall and Audit Ledger handle security-sensitive workloads. A byp
 
 ### How to Report
 
-Email the maintainers with the subject line: `[SECURITY] awesome-ai-governance-toolkit`
+Report via GitHub's private Security Advisories:
+**[Open a Security Advisory →](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/security/advisories/new)**
 
 Include:
 1. **Description** — What the vulnerability is and which component it affects (`src/engine.py`, `src/database.py`, the intercept proxy, etc.)
