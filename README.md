@@ -9,8 +9,10 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![CI](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions/workflows/safety-ci.yml/badge.svg)](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions)
 [![CodeQL](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions/workflows/codeql.yml/badge.svg)](https://github.com/Aryanshanu/awesome-ai-governance-toolkit/actions/workflows/codeql.yml)
+[![PyPI](https://img.shields.io/pypi/v/awesome-ai-governance-toolkit.svg)](https://pypi.org/project/awesome-ai-governance-toolkit/)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-green.svg)](https://python.org)
 [![Changelog](https://img.shields.io/badge/changelog-1.0.0-blue.svg)](CHANGELOG.md)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aryanshanu-awesome-ai-governance-toolkit.streamlit.app)
 
 ---
 
@@ -100,6 +102,21 @@ This toolkit intercepts every message before it reaches your LLM. It enforces yo
 
 ---
 
+## Why Not Guardrails AI or LlamaGuard?
+
+These comparisons are based on publicly documented architecture — not marketing claims.
+
+| Core Capability | Guardrails AI | LlamaGuard | **This Toolkit** |
+| :--- | :--- | :--- | :--- |
+| **Deployment Model** | Python SDK / Validation Layer | Fine-Tuned Model Weights | **FastAPI Sidecar Proxy** |
+| **Tamper-Evident Audit Ledger** | No | No | **Yes — SHA-256 hash chain** |
+| **Out-of-the-Box Local UI** | No (cloud/paid dashboard) | None | **Yes — open-source Streamlit** |
+| **Regulatory Compliance Map** | Guardrails Hub rules | Toxicity class labels | **EU AI Act + NIST AI RMF** |
+| **Policy Format** | Python validators / Pydantic | Model fine-tuning | **Human-readable JSON** |
+| **pip install** | ✅ | ❌ | **✅ `pip install awesome-ai-governance-toolkit`** |
+
+---
+
 ## Architecture: The Five Layers
 
 ### Layer 1 — Ingress Proxy (`src/main.py`)
@@ -169,10 +186,22 @@ awesome-ai-governance-toolkit/
 
 ## ⚡ Quick Start
 
+**Option 1 — pip (recommended):**
+```bash
+pip install awesome-ai-governance-toolkit
+```
+
+**Option 2 — from source:**
 ```bash
 git clone https://github.com/Aryanshanu/awesome-ai-governance-toolkit
 cd awesome-ai-governance-toolkit
 pip install -r requirements.txt
+```
+
+**After pip install — CLI shortcuts:**
+```bash
+ai-governance-serve      # starts the firewall API on port 8000
+ai-governance-dashboard  # launches the compliance dashboard on port 8501
 ```
 
 **Mode A — Python SDK** (embed directly in your application):
@@ -343,20 +372,6 @@ If any red-team check passes (i.e., a dangerous prompt is NOT blocked), the pipe
 
 ---
 
-## ⚖️ Architectural Differentiation
-
-These comparisons are based on publicly documented architecture — not marketing claims.
-
-| Core Capability | Guardrails AI | LlamaGuard | **This Toolkit** |
-| :--- | :--- | :--- | :--- |
-| **Deployment Model** | Python SDK / Validation Layer | Fine-Tuned Model Weights | **FastAPI Sidecar Proxy** |
-| **Tamper-Evident Audit Ledger** | No | No | **Yes — SHA-256 hash chain** |
-| **Out-of-the-Box Local UI** | No (cloud/paid dashboard) | None | **Yes — open-source Streamlit** |
-| **Regulatory Compliance Map** | Guardrails Hub rules | Toxicity class labels | **EU AI Act + NIST AI RMF** |
-| **Policy Format** | Python validators / Pydantic | Model fine-tuning | **Human-readable JSON** |
-
----
-
 ## Extending the Toolkit
 
 ### Add a new forbidden topic
@@ -396,11 +411,12 @@ print(f'Exported {len(rows)} rows to audit_export.csv')
 
 ## 🗺️ Roadmap
 
+- [x] Publish to PyPI: `pip install awesome-ai-governance-toolkit`
+- [x] Streamlit Cloud live demo deployment
 - [ ] Build and publish official multi-architecture Docker images to GitHub Container Registry (GHCR)
 - [ ] Integrate Microsoft Presidio for structural PII entity anonymization
 - [ ] Implement asynchronous PostgreSQL support for distributed multi-tenant audit logging
 - [ ] Add OpenTelemetry tracing for enterprise observability stacks
-- [ ] Publish to PyPI: `pip install ai-governance-toolkit`
 
 ---
 

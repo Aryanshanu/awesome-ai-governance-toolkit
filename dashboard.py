@@ -340,6 +340,15 @@ hr { border-color: #21262d !important; }
 STATE_PATH = "config/state.json"
 API_BASE   = "http://localhost:8000"
 
+# Auto-seed demo data on first run (Streamlit Cloud / fresh installs)
+try:
+    from src.database import init_db as _init_db
+    _init_db()
+    from demo_seed import seed_demo_db as _seed
+    _seed()
+except Exception:
+    pass
+
 
 def _read_state() -> dict:
     try:
