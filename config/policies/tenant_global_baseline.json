@@ -1,0 +1,41 @@
+{
+  "policy_metadata": {
+    "tenant_id": "corporate-global-hq",
+    "version": "2026.1",
+    "frameworks": ["EU-AI-Act-High-Risk", "NIST-AI-RMF", "ISO-42001"]
+  },
+  "security_rules": {
+    "block_forbidden_tokens": [
+      "malware", 
+      "social engineering", 
+      "exploit payload",
+      "jailbreak",
+      "ignore all previous instructions",
+      "bypass safety",
+      "self-harm",
+      "suicide",
+      "build a bomb",
+      "generate fake news",
+      "deepfake",
+      "unauthorized access",
+      "phishing"
+    ],
+    "hitl_triggers": [
+      "medical advice",
+      "symptoms",
+      "diagnosis",
+      "legal advice",
+      "lawsuit",
+      "investment advice",
+      "financial recommendation"
+    ],
+    "enforce_pii_masking": true,
+    "minimum_safety_threshold": 0.80
+  },
+  "fallbacks": {
+    "token_violation": "Execution Halted: Request violates Responsible AI (RAI) safety guidelines.",
+    "pii_violation": "Execution Halted: Transmitted payload contains unmasked structural personal identifiers (PII/PHI).",
+    "bias_flagged": "Response flagged for human review: potential fairness or bias concern detected.",
+    "kill_switch": "Service Unavailable: Global kill switch is active. Contact your compliance officer."
+  }
+}

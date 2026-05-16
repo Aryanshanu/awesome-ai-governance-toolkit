@@ -1,0 +1,28 @@
+{
+  "bias_lexicon_metadata": {
+    "version": "1.0",
+    "managed_by": "Compliance Team",
+    "last_reviewed": "2026-01-01",
+    "review_cycle": "quarterly"
+  },
+  "gender_bias_terms": [
+    "bossy", "shrill", "hysterical", "emotional (pejorative)", "catty",
+    "feisty", "abrasive (gender-targeted)", "unlikeable", "difficult woman"
+  ],
+  "racial_bias_terms": [
+    "articulate (backhanded)", "exotic", "urban (coded)", "thug (coded)",
+    "illegal alien", "anchor baby", "colored", "oriental"
+  ],
+  "socioeconomic_bias_terms": [
+    "welfare queen", "trailer trash", "white trash", "low-class",
+    "ghetto (pejorative)", "redneck (pejorative)"
+  ],
+  "ableist_terms": [
+    "crazy (pejorative)", "insane (pejorative)", "lame (pejorative)",
+    "retarded", "psycho (pejorative)", "dumb (pejorative)"
+  ],
+  "age_bias_terms": [
+    "digital native (exclusionary)", "over the hill", "past their prime",
+    "too old to learn", "boomer (pejorative)"
+  ]
+}

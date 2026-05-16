@@ -1,0 +1,10 @@
+{
+  "policy_metadata": {
+    "name": "Global MNC Baseline Rules",
+    "version": "1.0"
+  },
+  "security_rules": {
+    "block_forbidden_tokens": ["malware", "social engineering", "steal password"],
+    "minimum_safety_threshold": 0.85
+  }
+}
