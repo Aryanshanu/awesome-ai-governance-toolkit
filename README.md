@@ -27,7 +27,7 @@ The toolkit runs a synchronous sidecar proxy that intercepts every payload and s
 
 ![HITL Flow](assets/hitl_demo.webp)
 
-> **To generate this screenshot locally:** run `streamlit run dashboard.py`, type "medical advice" to trigger a Human-In-The-Loop pause, then click "Approve".
+> **[▶ Open Live Demo](https://awesome-ai-governance-toolkit-9jtu4sdrsfpgp5bcbmzrbr.streamlit.app)** — fully interactive, no install required. Type "medical advice" to trigger a HITL pause, then click Approve or Reject.
 
 ---
 
@@ -165,20 +165,39 @@ Fork the repo, make your change, and open a PR. We review all PRs within 24 hour
 awesome-ai-governance-toolkit/
 │
 ├── .github/workflows/
-│   └── safety-ci.yml           # Automated unit tests and red-teaming checks
+│   ├── safety-ci.yml           # Automated unit tests and red-teaming checks
+│   ├── codeql.yml              # GitHub CodeQL security scanning
+│   └── publish-pypi.yml        # Auto-publish to PyPI on v* tag push
+│
+├── .streamlit/
+│   └── config.toml             # Streamlit Cloud theme and server config
+│
+├── ai_governance_toolkit/
+│   ├── __init__.py             # pip-installable entry point (from ai_governance_toolkit import Sentinel)
+│   └── cli.py                  # CLI entry points: ai-governance-serve, ai-governance-dashboard
 │
 ├── config/
-│   └── policy.json             # Human-readable, machine-enforceable rules
+│   ├── policy.json             # Human-readable, machine-enforceable rules
+│   └── policies/
+│       └── tenant_global_baseline.json  # HITL triggers and forbidden token lists
 │
 ├── src/
-│   ├── __init__.py
 │   ├── main.py                 # FastAPI application and proxy route definitions
 │   ├── engine.py               # Circuit breaker and policy verification logic
-│   └── database.py             # SQLite configuration and hash chain tracking
+│   ├── database.py             # SQLite configuration and SHA-256 hash chain
+│   └── ethics/
+│       ├── fairness_metrics.py # Bias lexicon evaluation
+│       ├── explainability.py   # Plain-English explainability reports
+│       └── transparency_report.py  # RAI health metrics
 │
-├── dashboard.py                # Streamlit UI for legal/compliance teams
-├── requirements.txt            # Explicit third-party package dependencies
-├── LICENSE                     # Apache 2.0 Open Source License
+├── tests/                      # pytest suite — unit + red-team integration tests
+├── assets/                     # Screenshots and social preview image
+├── dashboard.py                # Streamlit compliance console
+├── demo_seed.py                # Seeds SHA-256 chained demo data for fresh installs
+├── sentinel.py                 # Top-level Python SDK interface
+├── pyproject.toml              # PyPI package configuration (hatchling)
+├── requirements.txt            # Third-party dependencies
+├── LICENSE                     # Apache 2.0
 └── README.md                   # This file
 ```
 
@@ -207,6 +226,9 @@ ai-governance-dashboard  # launches the compliance dashboard on port 8501
 **Mode A — Python SDK** (embed directly in your application):
 
 ```python
+# pip install users:
+from ai_governance_toolkit import Sentinel
+# clone/source users:
 from sentinel import Sentinel
 
 guard = Sentinel(policy="eu_ai_act_high_risk")
@@ -329,12 +351,15 @@ python - <<'EOF'
 import sqlite3, hashlib
 conn = sqlite3.connect("ledger.db")
 rows = conn.execute(
-    "SELECT request_id, action_taken, rule_violated, previous_hash, current_hash FROM compliance_log ORDER BY id"
+    """SELECT request_id, tenant_id, action_taken, rule_violated,
+              previous_hash, current_hash
+       FROM compliance_log ORDER BY id"""
 ).fetchall()
 print(f"Total entries: {len(rows)}")
 for i, row in enumerate(rows):
-    rid, action, viol, prev, curr = row
-    recomputed = hashlib.sha256(f"{rid}{action}{viol}{prev}".encode()).hexdigest()
+    rid, tid, action, viol, prev, curr = row
+    violation_str = viol or ""
+    recomputed = hashlib.sha256(f"{rid}{tid}{action}{violation_str}{prev}".encode()).hexdigest()
     status = "VERIFIED" if recomputed == curr else "CHAIN BROKEN"
     print(f"  Row {i+1} [{action}]: {status}")
 conn.close()
